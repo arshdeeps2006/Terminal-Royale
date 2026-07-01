@@ -44,20 +44,39 @@ void CasinoManager::printProfitLoss() const {
 
 void CasinoManager::start() {
     bool running = true;
+    int exitChoice = games.size() + 1; 
+
     while (running) {
         showMenu();
-        std::cout << "Select the game number you want to play (or " << games.size() + 1 << " to exit): ";
+        
+        if (playerBalance <= 0) {
+            std::cout << "\nOops! Your pocket is empty. Better luck next time! Press " << exitChoice << " to exit: ";
+        } else {
+            std::cout << "Select the game number you want to play (or " << exitChoice << " to exit): ";
+        }
+
         int choice;
         std::cin >> choice;
-        if (choice < 1 || choice > static_cast<int>(games.size()) + 1 || choice < INT32_MIN || choice > INT32_MAX) {
+
+        if (std::cin.fail() || choice < 1 || choice > exitChoice) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "Invalid choice. Try again." << std::endl;
             continue;
         }
-        if (choice == static_cast<int>(games.size()) + 1) {
+
+        // Enforce the exit rule if they are broke
+        if (playerBalance <=
+             0 && choice != exitChoice) {
+            continue; 
+        }
+
+        if (choice == exitChoice) {
             printProfitLoss();
             std::cout << "Thank you for visiting the casino!" << std::endl;
             break;
         }
+
         games[choice - 1]->play(playerBalance);
     }
-} 
+}

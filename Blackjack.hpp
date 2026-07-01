@@ -10,6 +10,7 @@ public:
     Blackjack(const std::string& playerName, double initialBalance);
     void play(double& playerBalance) override;
     std::string getName() const override;
+    void printRules() const;
     int calculateHandValue(const std::vector<Card>& hand) const;
 
 private:

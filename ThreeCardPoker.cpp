@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cstdlib>
 #include <ctime>
+#include <limits>
 
 ThreeCardPoker::ThreeCardPoker(const std::string& name, double& balance)
     : playerName(name), playerBalance(balance) {
