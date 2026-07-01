@@ -9,7 +9,7 @@ A collection of classic casino games, reimagined for your terminal. Built in mod
 - CMake-based build system
 - Unit tests included
 
-## Setup
+## Setup & Build
 
 **Clone and enter the project:**
 ```sh
@@ -18,19 +18,40 @@ cd Terminal-Royale
 ```
 
 **Build with CMake:**
+Choose the build commands that match your operating system and compiler:
+
+*For Mac and Linux:*
 ```sh
-cmake -S . -B build
-cmake --build build
+mkdir build
+cd build
+cmake ..
+cmake --build .
 ```
 
-**Launch the casino:**
+*For Windows(MinGW):*
 ```sh
-./build/casino
+mkdir build
+cd build
+cmake -G "MinGW Makefiles" ..
+cmake --build .
+```
+
+*For Windows (Visual Studio/MSVC):*
+```sh
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+
+*Launch the casino:*
+```sh
+./casino
 ```
 
 **Run the test suite:**
 ```sh
-./build/tests
+./tests
 ```
 
 ## Building Your Own Game
