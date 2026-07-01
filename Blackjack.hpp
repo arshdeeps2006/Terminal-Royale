@@ -19,7 +19,6 @@ private:
     std::vector<Card> deck;
     
     void initializeDeck();
-    void printRules() const;
     void shuffleDeck();
     Card dealCard();
     void printHand(const std::vector<Card>& hand, bool hideFirstCard = false) const;
