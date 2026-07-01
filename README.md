@@ -1,6 +1,13 @@
 # Terminal Royale
-
 A collection of classic casino games, reimagined for your terminal. Built in modern C++ with a clean, extensible architecture and add your own games in minutes.
+---
+## Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+* **A C++17 compatible compiler** (GCC/MinGW, Apple Clang, or MSVC)
+* **[CMake](https://cmake.org/download/)** (Version 3.10 or higher)
+* **Git** 
+---
 
 ## Features
 
