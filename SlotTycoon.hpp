@@ -28,5 +28,5 @@ private:
     void showMenu() const;
     void printRules() const;
     void spinMachine(double& balance);
-    void showStats() const;
+    void showStats(double balance) const;
 };
